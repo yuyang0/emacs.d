@@ -124,7 +124,13 @@
      (screen . nil)
      (sh . t)
      (sql . nil)
-     (sqlite . t))))
+     (sqlite . t)
+
+     (latex . t)
+     (scheme . t)
+     (awk . t))))
+;; don't confirm when evaluate the code
+(setq org-confirm-babel-evaluate nil)
 
 
 (provide 'init-org)
