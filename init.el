@@ -89,10 +89,10 @@
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
-(require 'init-clojure)
-(when (>= emacs-major-version 24)
-  (require 'init-clojure-cider))
-(require 'init-common-lisp)
+;; (require 'init-clojure)
+;; (when (>= emacs-major-version 24)
+;;   (require 'init-clojure-cider))
+;; (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
