@@ -92,6 +92,11 @@
   <span>© 2013 Yu Yang's Blog, Created by org-mode and dropbox</span>
   <a href=\"#\" class=\"back-to-top\" id=\"fixed-back-to-top\" ></a>
 </div>
+<script src=\"http://libs.baidu.com/jquery/2.0.0/jquery.min.js\"></script>
+<script type=\"text/javascript\">
+	!window.jQuery && document.write('<script src=\"static/js/jquery-2.0.0.min.js\"><\/script>');
+	</script>
+<script type=\"text/javascript\" src=\"static/js/custom.js\"></script>
 <!-- end footer -->")
 
 (setq org-publish-project-alist
@@ -261,7 +266,8 @@
                                (or visiting (find-file tags-filename)))
       (erase-buffer)
       (insert (concat "#+TITLE:tags\n"
-                      "#+OPTIONS: ^:nil toc:nil\n\n")) 
+                      "#+OPTIONS: ^:nil toc:nil\n\n"))
+      (insert (format "#+HTML_HEAD_EXTRA: <script type=\"text/javascript\" src=\"http://libs.baidu.com/jquery/2.0.0/jquery.min.js\"> </script> \n"))
       (insert (format "#+HTML_HEAD_EXTRA: <script type=\"text/javascript\" src=\"static/js/jquery.tagcloud.js\"> </script> \n"))
       (insert (format "#+HTML_HEAD_EXTRA: <script type=\"text/javascript\" src=\"static/js/tags.js\"> </script> \n"))
 
