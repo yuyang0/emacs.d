@@ -223,8 +223,8 @@ except it will keep the braces balance when duplicate the line"
 (global-set-key (kbd "s-y") 'browse-kill-ring)
 
 ;; use shift + arrow keys to switch between visible buffers
-;; (require 'windmove)
-;; (windmove-default-keybindings)
+(require 'windmove)
+(windmove-default-keybindings)
 
 ;; define function to shutdown emacs server instance
 (defun server-shutdown ()
@@ -233,8 +233,8 @@ except it will keep the braces balance when duplicate the line"
   (save-some-buffers)
   (kill-emacs))
 
-;; (require 'personal-mode)
-;; (personal-global-mode)
+(require 'personal-mode)
+(personal-global-mode)
 ;;----------------------------------------------------------------------------
 ;; display currfent time in mode line, It's usefull when the emacs frame is
 ;; maximized
