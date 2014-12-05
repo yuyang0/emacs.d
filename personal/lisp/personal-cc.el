@@ -35,7 +35,6 @@
 (defun linux-c-mode()
   ;; (c-set-style "K&R")
   ;; (c-toggle-auto-state)
-  (c-toggle-auto-newline)
   ;; (setq c-basic-offset 4)
   ;; (imenu-add-menubar-index)
   (which-function-mode +1)
