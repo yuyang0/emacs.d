@@ -32,6 +32,7 @@
 ;;------------language support-------------
 (require 'personal-cc)
 (require 'personal-python)
+(require 'personal-go)
 ;; (require 'personal-latex)
 (require 'personal-racket)
 ;; (require 'personal-scheme)
