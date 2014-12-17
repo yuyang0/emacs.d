@@ -26,15 +26,6 @@
 ;;
 ;;; Code:
 
-(when (version< (org-version) "8")
-  (require-package 'org '(20130720 1353) t))
-
-;;---------------------------------------------------------
-;;  publish project  to html files
-;; my static blog
-;;---------------------------------------------------------
-(require 'personal-blog)
-
 ;;---------------------------------------------------------
 ;;       pdf export Chinese support
 ;;---------------------------------------------------------
@@ -51,7 +42,7 @@
 ;;       '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-                                 "xelatex -interaction nonstopmode %f"))
+                              "xelatex -interaction nonstopmode %f"))
 (setq org-html-mathjax-options '((path "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
                                  (scale "100")
                                  (align "center")
@@ -67,41 +58,41 @@
 ;;---------------------------------------------------------
 ;; Babel
 ;;---------------------------------------------------------
-(require 'org-install)
+;; (require 'org-install)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (sh . t)
-   (python . t)
-   (ruby . t)
-   (perl . t)
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '(
+;;    (sh . t)
+;;    (python . t)
+;;    (ruby . t)
+;;    (perl . t)
 
-   (C . t)
-   ;; (cpp . t)
+;;    (C . t)
+;;    ;; (cpp . t)
 
-   (ditaa . t)
-   (dot . t)
-   (R . t)
-   (octave . t)
-   (matlab . t)
-   (gnuplot . t)
-   (sqlite . t)
+;;    (ditaa . t)
+;;    (dot . t)
+;;    (R . t)
+;;    (octave . t)
+;;    (matlab . t)
+;;    (gnuplot . t)
+;;    (sqlite . t)
 
-   (emacs-lisp . t)
-   (scheme . t)
-   (lisp . t)
-   (haskell . t)
+;;    (emacs-lisp . t)
+;;    (scheme . t)
+;;    (lisp . t)
+;;    (haskell . t)
 
-   (awk . t)
-   (latex . t)
+;;    (awk . t)
+;;    (latex . t)
 
-   (js . t)
-   (css . t)
-   (sass . t)
-   ))
-;; don't confirm when evaluate the code
-(setq org-confirm-babel-evaluate nil)
+;;    (js . t)
+;;    (css . t)
+;;    (sass . t)
+;;    ))
+;; ;; don't confirm when evaluate the code
+;; (setq org-confirm-babel-evaluate nil)
 
 ;;-------------------------------------------------------------------
 ;;      auto fill paragraphs

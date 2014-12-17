@@ -58,7 +58,7 @@
 
 ;; (unless (require 'personal-auto-complete nil t)
 ;;  (require 'init-auto-complete))
-;; (require 'personal-org nil t)
+(require 'personal-org)
 (require 'personal-blog)
 ;;----------------------------------------------------------------------------
 ;;  yasnippet must stay behind the config of languages modes
