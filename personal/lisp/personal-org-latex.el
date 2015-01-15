@@ -32,8 +32,8 @@
 ;; Usage:
 ;;
 ;;; Code:
-
 (require 'ox-latex)
+
 (setq org-export-latex-listings t)
 ;; org-mode source code setup in exporting to latex
 (add-to-list 'org-latex-listings '("" "listings"))
@@ -58,50 +58,39 @@
 
 (add-to-list 'org-latex-classes
              '("my-org-book-zh"
-
                "\\documentclass{book}
-
 \\usepackage[slantfont, boldfont]{xeCJK}
-
 % chapter set
-
 \\usepackage[Lenny]{fncychap}
-
 [NO-DEFAULT-PACKAGES]
-
 [PACKAGES]
-
-\\setCJKmainfont{SimSun}
-
+\\setCJKmainfont{SimSun} % 设置缺省中文字体
 \\parindent 2em
 
-\\setmainfont{DejaVu Sans}
+\\setmainfont{DejaVu Sans} % 英文衬线字体
+\\setsansfont{DejaVu Serif} % 英文无衬线字体
+\\setmonofont{DejaVu Sans Mono} % 英文等宽字体
+%\\punctstyle{DejaVu Sans} % 开明式标点格式
 
-\\setsansfont{DejaVu Serif}
 
-\\setmonofont{DejaVu Sans Mono}
+\\defaultfontfeatures{Mapping=tex-text} %如果没有它，会有一些 tex 特殊字符无法正常使用，比如连字符。
 
-\\defaultfontfeatures{Mapping=tex-text}
-
+% 中文断行
 \\XeTeXlinebreaklocale \"zh\"
-
 \\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
 
+% 代码设置
 \\lstset{numbers=left,
-
 numberstyle= \\tiny,
-
 keywordstyle= \\color{ blue!70},commentstyle=\\color{red!50!green!50!blue!50},
-
 frame=shadowbox,
-
+breaklines=true,
 rulesepcolor= \\color{ red!20!green!20!blue!20}
-
 }
 
 [EXTRA]
 "
-
+             ("\\chapter{%s}" . "\\chapter*{%s}")
              ("\\section{%s}" . "\\section*{%s}")
              ("\\subsection{%s}" . "\\subsection*{%s}")
              ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -110,6 +99,6 @@ rulesepcolor= \\color{ red!20!green!20!blue!20}
 
 (setq org-latex-pdf-process
       '("xelatex -interaction nonstopmode %b"
-	"xelatex -interaction nonstopmode %b"))
+        "xelatex -interaction nonstopmode %b"))
 (provide 'personal-org-latex)
 ;;; personal-org-latex.el ends here
