@@ -65,31 +65,31 @@
           (semantic-add-system-include dir 'c-mode))
         include-dirs))
 
-(defadvice push-mark (around semantic-mru-bookmark activate)
-  "Push a mark at LOCATION with NOMSG and ACTIVATE passed to `push-mark'.
-If `semantic-mru-bookmark-mode' is active, also push a tag onto
-the mru bookmark stack."
-  (semantic-mrub-push semantic-mru-bookmark-ring
-                      (point)
-                      'mark)
-  ad-do-it)
-(defun semantic-ia-fast-jump-back ()
-  (interactive)
-  (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
-      (error "Semantic Bookmark ring is currently empty"))
-  (let* ((ring (oref semantic-mru-bookmark-ring ring))
-         (alist (semantic-mrub-ring-to-assoc-list ring))
-         (first (cdr (car alist))))
-    (if (semantic-equivalent-tag-p (oref first tag) (semantic-current-tag))
-        (setq first (cdr (car (cdr alist)))))
-    (semantic-mrub-switch-tags first)))
-(defun semantic-ia-fast-jump-or-back (&optional back)
-  (interactive "P")
-  (if back
-      (semantic-ia-fast-jump-back)
-    (semantic-ia-fast-jump (point))))
-(define-key semantic-mode-map (kbd "<f12>") 'semantic-ia-fast-jump-or-back)
-(define-key semantic-mode-map [C-f12] 'semantic-ia-fast-jump-back)
+;; (defadvice push-mark (around semantic-mru-bookmark activate)
+;;   "Push a mark at LOCATION with NOMSG and ACTIVATE passed to `push-mark'.
+;; If `semantic-mru-bookmark-mode' is active, also push a tag onto
+;; the mru bookmark stack."
+;;   (semantic-mrub-push semantic-mru-bookmark-ring
+;;                       (point)
+;;                       'mark)
+;;   ad-do-it)
+;; (defun semantic-ia-fast-jump-back ()
+;;   (interactive)
+;;   (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
+;;       (error "Semantic Bookmark ring is currently empty"))
+;;   (let* ((ring (oref semantic-mru-bookmark-ring ring))
+;;          (alist (semantic-mrub-ring-to-assoc-list ring))
+;;          (first (cdr (car alist))))
+;;     (if (semantic-equivalent-tag-p (oref first tag) (semantic-current-tag))
+;;         (setq first (cdr (car (cdr alist)))))
+;;     (semantic-mrub-switch-tags first)))
+;; (defun semantic-ia-fast-jump-or-back (&optional back)
+;;   (interactive "P")
+;;   (if back
+;;       (semantic-ia-fast-jump-back)
+;;     (semantic-ia-fast-jump (point))))
+;; (define-key semantic-mode-map (kbd "<f12>") 'semantic-ia-fast-jump-or-back)
+;; (define-key semantic-mode-map [C-f12] 'semantic-ia-fast-jump-back)
 
 (provide 'personal-cedet)
 ;;; personal-cedet.el ends here

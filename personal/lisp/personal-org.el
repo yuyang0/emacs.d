@@ -41,9 +41,12 @@
 ;; (setq org-latex-pdf-process
 ;;       '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-                              "xelatex -interaction nonstopmode %f"))
-(setq org-html-mathjax-options '((path "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+;; (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+;;                               "xelatex -interaction nonstopmode %f"))
+(require 'personal-org-latex)
+(setq org-html-mathjax-options '(
+                                 ;;(path "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+                                 (path "http://cdn.bootcss.com/mathjax/2.4.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
                                  (scale "100")
                                  (align "center")
                                  (indent "2em")
@@ -98,8 +101,8 @@
 ;;      auto fill paragraphs
 ;;-------------------------------------------------------------------
 (add-hook 'org-mode-hook '(lambda ()
-                          (setq-default fill-column 79)
-                          (turn-on-auto-fill)))
+                            (setq-default fill-column 79)
+                            (turn-on-auto-fill)))
 ;;; vim's o command
 (defun org-vi-open-line-below ()
   (interactive)

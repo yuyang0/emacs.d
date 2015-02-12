@@ -37,6 +37,7 @@
 (require 'personal-racket)
 ;; (require 'personal-scheme)
 ;; (require 'personal-clojure)
+(require 'personal-scala)
 ;;----------------------------------------------------------------------------
 ;;  some package settings
 ;;----------------------------------------------------------------------------

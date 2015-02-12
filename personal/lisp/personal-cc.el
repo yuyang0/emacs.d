@@ -51,12 +51,11 @@
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (set (make-local-variable 'company-backends)
-                 '((company-semantic company-yasnippet company-clang)))))
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (set (make-local-variable 'company-backends)
+;;                  '((company-semantic company-yasnippet company-clang)))))
 
-;;;;;gdb many windows
 ;;;gdb的manywindow模式
 (setq gdb-many-windows t)
 
@@ -108,7 +107,7 @@
               (concat "cd " top-dir " && test -d build || mkdir build && cd build && cmake .. && make"))))
      ((find t candidate-make-file-name :key
             '(lambda (f) (file-readable-p f)))
-      (setq command "CFLAGS='-g -Wall' make -k "))
+      (setq command "make "))
      ;; 没有找到 Makefile ，查看当前 mode 是否是已知的可编译的模式
      ((null (buffer-file-name (current-buffer)))
       (message "Buffer not attached to a file, won't compile!"))
@@ -129,7 +128,7 @@
         (let ((command (read-from-minibuffer "Compile command: " command)))
           (compile command)))))
 ;;----------------------------------------------------------------------
-;; (require 'personal-cedet)
+(require 'personal-cedet)
 
 (provide 'personal-cc)
 ;;; personal-cc.el ends here

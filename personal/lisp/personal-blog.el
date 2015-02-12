@@ -81,6 +81,37 @@
 </div>
 ")
 
+(defvar duoshuo-str "<!-- 多说评论框 start -->
+  <div id=\"duoshuo-id\" class=\"ds-thread\" data-thread-key=\"请将此处替换成文章在你的站点中的ID\" data-title=\"请替换成文章的标题\" data-url=\"请替换成文章的网址\"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type=\"text/javascript\">
+   var url = window.location.pathname;
+   var duoshuo_identifier = url.substring(url.lastIndexOf('/')+1);
+   if (!!! duoshuo_identifier) {
+     duoshuo_identifier = \"index.html\";
+   }
+   var title = document.title;
+   var ele = document.getElementById(\"duoshuo-id\");
+   ele.setAttribute(\"data-thread-key\", duoshuo_identifier);
+   ele.setAttribute(\"data-title\", title);
+   ele.setAttribute(\"data-url\", url);
+
+</script>
+
+<script type=\"text/javascript\">
+var duoshuoQuery = {short_name:\"yuyang0\"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementById('postamble')
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->")
+
 (defvar footer-str "<!-- begin footer -->
 <div id=\"footer\">
   <ul class=\"links vertical-nav\">
@@ -92,9 +123,9 @@
   <span>© 2013 Yu Yang's Blog, Created by org-mode and dropbox</span>
   <a href=\"#\" class=\"back-to-top\" id=\"fixed-back-to-top\" ></a>
 </div>
-<script src=\"http://libs.baidu.com/jquery/2.0.0/jquery.min.js\"></script>
+<script src=\"http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js\"></script>
 <script type=\"text/javascript\">
-	!window.jQuery && document.write('<script src=\"static/js/jquery-2.0.0.min.js\"><\/script>');
+	window.jQuery || document.write('<script src=\"static/js/jquery-2.0.0.min.js\"><\\/script>');
 	</script>
 <script type=\"text/javascript\" src=\"static/js/custom.js\"></script>
 <!-- end footer -->")
@@ -120,7 +151,7 @@
          :html-head  "<link rel=\"stylesheet\" type=\"text/css\" href=\"static/css/main.css\"/>
 <link rel=\"shortcut icon\" href=\"static/img/favicon.ico\" />"
          :html-preamble ,header-str
-         :html-postamble ,(concat disqus-str footer-str)
+         :html-postamble ,(concat duoshuo-str footer-str)
          )
         ("blog-static"
          :base-directory "~/Documents/note/"

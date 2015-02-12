@@ -255,7 +255,7 @@ except it will keep the braces balance when duplicate the line"
 ;;----------------------------------------------------------------------------
 ;;  some useful packages
 ;;----------------------------------------------------------------------------
-(require-packages '(url-shortener nginx-mode s))
+(require-packages '(url-shortener nginx-mode s web-beautify))
 (add-to-list 'auto-mode-alist
              '("\\.sls\\'"  . yaml-mode))
 ;;----------------------------------------------------------------------------

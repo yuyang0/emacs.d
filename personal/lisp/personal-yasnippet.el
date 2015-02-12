@@ -41,7 +41,7 @@
          '(c-mode-common-hook php-mode-hook python-mode-hook ruby-mode-hook
                               scheme-mode-hook  sh-mode-hook nxml-mode-hook
                               css-mode-hook js2-mode-hook js3-mode-hook
-                              html-mode-hook lisp-mode-hook
+                              html-mode-hook lisp-mode-hook lua-mode-hook
                               emacs-lisp-mode-hook LaTeX-mode-hook
                               org-mode-hook haskell-mode-hook sql-mode-hook))
   (add-hook hook '(lambda ()
